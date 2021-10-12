@@ -12,7 +12,7 @@ const reverse = input => {
   for (let i=length-1; i>=0; i=i-1) {
     revString = revString + input[i];
   };
-  rl.output.write(revString)
+  rl.output.write(revString+'\n\n')
 }
 
 rl.on('line', function(line){
