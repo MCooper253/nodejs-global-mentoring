@@ -7,14 +7,9 @@ const rl = readline.createInterface({
 });
 
 const reverse = input => {
-  const length = input.length;
-  let revString = '';
-  for (let i=length-1; i>=0; i=i-1) {
-    revString = revString + input[i];
-  };
-  rl.output.write(revString+'\n\n')
+  return input.split('').reverse().join('');
 }
 
 rl.on('line', function(line){
-  reverse(line);
+  rl.output.write(reverse(line)+'\n\n');
 });
