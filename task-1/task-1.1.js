@@ -8,8 +8,10 @@ const rl = readline.createInterface({
 
 const reverse = input => {
   return input.split('').reverse().join('');
-}
+};
 
-rl.on('line', function(line){
+const output = line => {
   rl.output.write(reverse(line)+'\n\n');
-});
+};
+
+rl.on('line', output);
