@@ -23,7 +23,6 @@ const getUser = id => {
       age: userDatabase[idString].age
     };
     } else {
-      response.user = null;
       response.hasError = true;
       response.error = `user with id '${id}' does not exist on the database`;
     };
@@ -53,7 +52,6 @@ const updateUser = ({ id, login, password, age }) => {
     msg: null,
     error: null,
     hasError: false,
-    httpStatus: null,
   };
 
   const findUser = getUser(id)
@@ -90,17 +88,21 @@ const deleteUser = id => {
     msg: null,
     error: null,
     hasError: false,
-    httpStatus: null,
   };
 
-  if (!user.isDeleted) {
-    user.isDeleted = true;
-    response.msg = `user with id ${idString} has been delted from the database`;
+  if (user) {
+    if (!user.isDeleted) {
+      user.isDeleted = true;
+      response.msg = `user with id ${idString} has been delted from the database`;
+    } else {
+      response.hasError = true;
+      response.error = `user with id ${idString} does not exist on the database`;
+    }
   } else {
     response.hasError = true;
-    response.error = `user with id ${idString} does not exist on the database`;
-    response.httpStatus = 400;
+    response.error = `user with id '${id}' does not exist on the database`;
   }
+
 
   return response
 }

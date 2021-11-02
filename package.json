@@ -6,6 +6,7 @@
   "scripts": {
     "task1:1:build": "babel './task-1/task-1.1.js' -d './dist/task-1/task-1.1.js'",
     "task1:2:dev": "nodemon ./task-1/task-1.1.js",
+    "start:dev:task2": "nodemon ./task-2/server.js --exec babel-node ./task-2/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
